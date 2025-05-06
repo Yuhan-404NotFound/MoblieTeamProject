@@ -42,7 +42,7 @@ function CalendarPage() {
   }, []);
 
   return (
-    <div>
+    <div className="calendar-content">
       <Calendar                                               
         onChange={setDate}                                        // 날짜 클릭 시 date 상태 변경
         value={date}                                              // 현재 선택된 날짜 달력에 표시

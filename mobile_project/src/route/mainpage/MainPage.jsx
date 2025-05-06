@@ -61,8 +61,7 @@ function MainPage()
 
   return (
     <>
-        
-        <div className="task-list">
+      <div className="task-list">
           
       </div>
 
@@ -76,7 +75,6 @@ function MainPage()
           todayPlan.map((item, i) =>{
             return (
               <div key={i}>
-                <h1>작심삼일 {i+1}일 째</h1>
                 {item}
               </div>
             );

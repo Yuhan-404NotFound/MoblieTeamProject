@@ -71,14 +71,14 @@ function PlanPage()
 
   return (
     <>
-      <div>
+      <div className ='task-list'>
         시작: <input type="date" value={startDay} onChange={(e) => setStartDay(e.target.value)} />
 
         {/* 시작날짜가 지정되었을때만 finalDay 표시 */}
         ~ {startDay ? finalDay : <p>YYYY-MM-DD</p>}
       </div>
 
-      <div>
+      <div className ='task-list'>
         3일간 계획 
         <br/>
         
@@ -97,7 +97,7 @@ function PlanPage()
         <button onClick={()=>{ localStorage.removeItem('PlanData'); }}> 로컬스토리지 제거</button>
       </div>
 
-      <div>
+      <div className ='task-list'>
         <h3>저장된 계획</h3>
         {planData.length ? (
           <ul>
