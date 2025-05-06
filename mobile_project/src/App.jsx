@@ -23,11 +23,25 @@ function App() {
 
 
       {/* 하단 네비게이션 바 */}
-      <nav className="custom-navbar">
-        <Link to="/">메인화면</Link>
-        <Link to="/calender">캘린더임</Link>
-        <Link to="/addplan">일정추가</Link>
-      </nav>
+      <div className="custom-navbar">
+        <Link to="/">
+          <div>
+            <img src='/main.png' style={{width:"50px"}} />
+          </div>
+        </Link>
+
+        <Link to="/calender">
+          <div>
+            <img src='/calendar.png' style={{width:"40px"}} />
+          </div>
+        </Link>
+
+        <Link to="/addplan">
+          <div>
+            <img src='/pencil2.png' style={{width:"50px"}} />
+          </div>
+        </Link>
+      </div>
     </>
   )
 }
