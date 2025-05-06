@@ -32,7 +32,7 @@ function CalendarPage() {
       for (let i = 0; i < 3; i++) {               // start를 기준으로 3일 연속된된 날짜 생성
         const date = new Date(start);
         date.setDate(start.getDate() + i);
-        dates.push(formatDateLocal(date)); // 로컬 포맷 사용
+        dates.push(formatDateLocal(date));      // 로컬 포맷 사용
       }
 
       return dates;
@@ -43,9 +43,9 @@ function CalendarPage() {
 
   return (
     <div>
-      <Calendar
-        onChange={setDate}
-        value={date}
+      <Calendar                                               
+        onChange={setDate}                                        // 날짜 클릭 시 date 상태 변경
+        value={date}                                              // 현재 선택된 날짜 달력에 표시
         formatDay={(locale, date) => date.getDate()}
         tileClassName={({ date, view }) => {
           if (view === 'month') {
