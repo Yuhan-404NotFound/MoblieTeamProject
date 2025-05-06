@@ -1,0 +1,78 @@
+/* CalendarPage.css */
+.calendar-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  /* 캘린더 전체 박스 스타일 */
+  .react-calendar {
+    width: 90%;
+    max-width: 400px;
+    background: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+  }
+  
+  /* 캘린더 타일(하나하나 날짜) 스타일 */
+  .react-calendar__tile {
+    height: 50px;
+    font-size: 16px;
+  }
+  
+  /* 오늘 날짜 표시 스타일 */
+  .react-calendar__tile--now {
+    background: #f0f8ff;
+    border-radius: 8px;
+  }
+  
+  /* 클릭한 날짜 스타일 */
+  .react-calendar__tile--active {
+    background: #4caf50;
+    color: white;
+    border-radius: 8px;
+  }
+  
+  /* CalendarPage.css */
+
+.marked {
+    background: #ffeb3b; /* 노란색 배경 */
+    border-radius: 20%;
+    color: black;
+  }
+
+  /* 할 일 목록 스타일 */
+.task-list {
+  margin-top: 20px;
+  width: 90%;
+  max-width: 400px;
+  background: white;
+
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+
+.task-list h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.task-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.task-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+.task-list li:last-child {
+  border-bottom: none;
+}
