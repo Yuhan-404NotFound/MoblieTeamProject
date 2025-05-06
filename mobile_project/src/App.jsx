@@ -16,7 +16,7 @@ function App() {
     <>
       {/* 라우터 분리 */}
       <Routes>
-        <Route path="/" element={ <MainPage/> } />
+        <Route path="/MainPage" element={ <MainPage/> } />
         <Route path="/calender" element={ <CalendarPage/> } />
         <Route path="/addplan" element={ <PlanPage/> } />
       </Routes>
@@ -24,7 +24,7 @@ function App() {
 
       {/* 하단 네비게이션 바 */}
       <nav className="custom-navbar">
-        <Link to="/">메인화면</Link>
+        <Link to="/MainPage">메인화면</Link>
         <Link to="/calender">캘린더임</Link>
         <Link to="/addplan">일정추가</Link>
       </nav>
