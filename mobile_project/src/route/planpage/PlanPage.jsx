@@ -26,9 +26,80 @@ function PlanPage()
     }
   }, [startDay]);
 
+  
+  // 계획 항목 추가 함수
+  function addPlanItem() {
+    if (inputPlan.trim() === '') { return; } // 빈 입력값은 무시
+
+    // 새로운 계획 항목을 추가
+    const updatedPlanList = [...planList, inputPlan.trim()];
+    setPlanList(updatedPlanList); // 업데이트된 계획 항목 목록 저장
+    setInputPlan(''); // 입력창 비우기
+  }
+
+  // 계획 저장 함수
+  function savePlan() {
+
+    // 계획 객체 생성
+    const newPlanData = {
+      startDay: startDay,
+      finalDay: finalDay,
+      planList: planList,
+      clear: clear,
+    };
+
+    // 새로운 계획을 planData 배열에 추가
+    const updatedPlanData = [...planData, newPlanData];
+    setPlanData(updatedPlanData);
+
+    // 로컬스토리지에 저장
+    localStorage.setItem('PlanData', JSON.stringify(updatedPlanData));
+  }
+
+  // 저장된 계획 불러오기
+  useEffect(() => {
+    // 로컬 스토리지 PlanData JSON으로 파싱
+    const savedPlanData = JSON.parse(localStorage.getItem('PlanData'));
+
+    // 배열 구조인지 체킹 if문 (Iteral 방지)
+    if (savedPlanData && Array.isArray(savedPlanData)) {
+      setPlanData(savedPlanData);
+    } else {
+      setPlanData([]); 
+    }
+  }, []);
+
   return (
     <>
-        <h1>플랜 페이지</h1>
+      <div>
+        시작:
+        <input type="date" value={startDay} onChange={(e) => setStartDay(e.target.value)} />
+
+        { /* 시작날짜가 지정되었을때만 finalDay 표시*/ }
+        ~ {startDay ? finalDay : <p>없음</p>}
+      </div>
+
+      <div>
+        3일간 뭐할지? 
+        <br/>
+        
+        <input type="text" value={inputPlan} onChange={(e) => setInputPlan(e.target.value)}/>
+
+        <button onClick={()=>{addPlanItem()}}>추가</button>
+
+        <ul>
+          {planList.map((item, i) => (
+            <li key={i}>{item}</li>
+          ))}
+        </ul>
+
+        <button onClick={()=>{savePlan();}}>저장하기</button>
+
+        {/*테스트용 제거 버튼*/}
+        <button onClick={()=>{ localStorage.removeItem('PlanData'); }}> 로컬스토리지 제거</button>
+      </div>
+
+
     </>
   )
 }
