@@ -4,7 +4,6 @@ import './MainPage.css'
 
 function MainPage()
 {
-
   return (
     <>
         <h1>메인 화면</h1>

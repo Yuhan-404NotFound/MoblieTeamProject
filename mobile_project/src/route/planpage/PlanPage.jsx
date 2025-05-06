@@ -72,19 +72,17 @@ function PlanPage()
   return (
     <>
       <div>
-        시작:
-        <input type="date" value={startDay} onChange={(e) => setStartDay(e.target.value)} />
+        시작: <input type="date" value={startDay} onChange={(e) => setStartDay(e.target.value)} />
 
-        { /* 시작날짜가 지정되었을때만 finalDay 표시*/ }
-        ~ {startDay ? finalDay : <p>없음</p>}
+        {/* 시작날짜가 지정되었을때만 finalDay 표시 */}
+        ~ {startDay ? finalDay : <p>YYYY-MM-DD</p>}
       </div>
 
       <div>
-        3일간 뭐할지? 
+        3일간 계획 
         <br/>
         
         <input type="text" value={inputPlan} onChange={(e) => setInputPlan(e.target.value)}/>
-
         <button onClick={()=>{addPlanItem()}}>추가</button>
 
         <ul>
@@ -97,6 +95,41 @@ function PlanPage()
 
         {/*테스트용 제거 버튼*/}
         <button onClick={()=>{ localStorage.removeItem('PlanData'); }}> 로컬스토리지 제거</button>
+      </div>
+
+      <div>
+        <h3>저장된 계획</h3>
+        {planData.length ? (
+          <ul>
+            {
+              planData.map((planItem, index) => (
+                <div key={index}>
+                  {planItem.startDay} ~ {planItem.finalDay}
+                  <br/>
+                  ===계획 내용===
+                  <ul>
+                    {
+                      planItem.planList.map((item, i) => (
+                        <li key={i}> {i + 1}. {item}</li>
+                      ))
+                    }
+                  </ul>
+                  <p>
+                    {
+                      planItem.clear.map((item, idx) => (
+                        <span key={idx}>
+                          {idx + 1}일차: {item ? 'O ' : 'X '}
+                        </span>
+                      ))
+                    }
+                  </p>
+                </div>
+              ))
+            }
+          </ul>
+          ) : (
+            <p>저장된 계획이 없습니다.</p>
+          )}
       </div>
 
 
