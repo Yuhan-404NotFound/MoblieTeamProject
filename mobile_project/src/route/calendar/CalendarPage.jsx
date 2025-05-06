@@ -55,6 +55,12 @@ function CalendarPage() {
             }
           }
         }} />
+
+        { /*테스트용 진행도바*/ }
+        <div style={{width:"90%", marginTop:"20px"}}>
+          <p>성취율</p>
+          <ProgressBar now={80} label={`${80}%`} /> {/*성취율 값 넣기 (now,lable)*/}
+        </div>
     </div>
   );
 }
