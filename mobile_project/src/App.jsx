@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import { Routes, Route, Link } from 'react-router-dom'
 import './App.css'
 
-{/* 컴포넌트 import */}
+{ /* 컴포넌트 import */ }
 import MainPage from './route/mainpage/MainPage.jsx';
 import CalendarPage from './route/calendar/CalendarPage.jsx'
 import PlanPage from './route/planpage/PlanPage.jsx'
@@ -23,7 +23,7 @@ function App() {
 
 
       {/* 하단 네비게이션 바 */}
-      <nav className="navbar">
+      <nav className="custom-navbar">
         <Link to="/">메인화면</Link>
         <Link to="/calender">캘린더임</Link>
         <Link to="/addplan">일정추가</Link>
