@@ -40,7 +40,13 @@
   }
 
 
+.todayPlan{
+  width: 100%;
+  height: calc(100% - 140px);
+}
+
 .getLine{
   border: 1px solid red;
 }
+
   

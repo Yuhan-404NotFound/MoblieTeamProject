@@ -66,6 +66,6 @@
   /* 오른쪽 위/아래 둥근 모서리 제거 */
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
   padding: 20px;
 }

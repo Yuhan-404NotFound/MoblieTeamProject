@@ -11,14 +11,13 @@ function PlanPage()
 {
   const[isSetRoute, setIsSetRoute] = useState(true);
 
-
   return (
     <motion.div
       initial={{ opacity: 0, x: 100 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, y: -100 }}
       transition={{ duration: 0.3 }}
-      className='componentSize getLine'>
+      className='componentSize'>
 
       {/* 버튼 */}
       <div className='componentChangeButtonDiv' onClick={()=>{setIsSetRoute(!isSetRoute)}}>
@@ -51,7 +50,7 @@ function PlanCheckButton(){
       transition={{ duration: 0.3 }}
       className='PlanCheckbuttonComponentStyle'>
       
-      <h1>계획 리스트 </h1>
+      <h1>계획 리스트 →</h1>
     </motion.div>
   )
 }
@@ -65,7 +64,7 @@ function PlanSetButton(){
       transition={{ duration: 0.3 }}
       className='PlanSetbuttonComponentStyle '>
       
-      <h1>  3일 플랜 세우기</h1>
+      <h1>← 3일 플랜 세우기</h1>
     </motion.div>
   )
 }

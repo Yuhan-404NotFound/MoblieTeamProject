@@ -21,7 +21,7 @@ function CheckPlanRoutePage()
     }
   }, []);
 
-  // 저장된 게획 삭제 함수
+  // 저장된 계획 삭제 함수
   function deletePlan(indexToDelete) {
     const updatedPlanData = planData.filter((_, index) => index !== indexToDelete);
     setPlanData(updatedPlanData);
@@ -44,6 +44,7 @@ function CheckPlanRoutePage()
         <hr/>
         
         <div className='planListSize'> 
+
             {planData.length ? 
             // 저장된 플랜이 있을 때
             <div style={{width:"100%"}}>
