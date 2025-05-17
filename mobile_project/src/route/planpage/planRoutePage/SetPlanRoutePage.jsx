@@ -13,6 +13,14 @@ function SetPlanRoutePage()
   const [planList, setPlanList] = useState([]);   // 플랜 항목 목록
   const [clear, setClear] = useState([false, false, false]); // 각 날의 완료 여부
 
+  // 현재 로컬스토리지에 저장된 플랜 배열 가져와서 Set
+  useEffect(() => {
+  const savedPlanData = JSON.parse(localStorage.getItem('PlanData'));
+    if (savedPlanData && Array.isArray(savedPlanData)) {
+        setPlanData(savedPlanData);
+    }
+    }, []);
+
     // 시작 날짜(StartDay)가 변할 때마다 종료 날짜(finalDay)를 자동으로 계산
   useEffect(() => {
     // startDay State 값이 있을때만 실행
@@ -66,30 +74,48 @@ function SetPlanRoutePage()
         exit={{ opacity: 0, x: -50 }}          // 오른쪽으로 퇴장
         transition={{ duration: 0.3 }}
         className='PlanRouteStyle'>
-        <h1>작심삼일</h1>
 
-       
-        시작:
-        <input type="date" value={startDay} onChange={(e) => setStartDay(e.target.value)} />
-
-        { /* 시작날짜가 지정되었을때만 finalDay 표시*/ }
-        ~ {startDay ? finalDay : <p>0000-00-00</p>}
-    
-
-
+        {/* 상단 문구*/}
+        <div style={{textAlign:"center"}}>
+            <h1>작심삼일</h1>
+            <hr/>
+        </div>
+        
+        {/* 추가한 플랜 리스트 */}
+        <div className='getLine3 setPlanRouteList' >
+            <ul>
+                {planList.map((item, i) => (
+                    <li key={i}>{item}</li>
+                ))}
+            </ul>
+        </div>
         
 
-        <ul>
-          {planList.map((item, i) => (
-            <li key={i}>{item}</li>
-          ))}
-        </ul>
 
-        <input type="text" value={inputPlan} onChange={(e) => setInputPlan(e.target.value)}/>
+        {/* 게획 생성 UI*/}
+        <div>
+            {/* 날짜 입력 UI */}
+            <div style={{display:"flex", marginTop:"15px"}}>
+                <input type="date" value={startDay} onChange={(e) => setStartDay(e.target.value)} 
+                    className='dateInputStyle'/>
 
-        <button onClick={()=>{addPlanItem()}}>추가</button>
-
-        <button onClick={()=>{ savePlan(); }}>저장하기</button>
+                { /* 시작날짜가 지정되었을때만 finalDay 표시*/ }
+                 {startDay ? <> ~ {finalDay} </>: null}
+            </div>
+        
+            
+            <div style={{marginTop:"5px"}}>
+                 <input type="text" className='input-dark' value={inputPlan} onChange={(e) => setInputPlan(e.target.value)}/>
+                 <button onClick={()=>{addPlanItem()}} className='setPlanRoutebutton'>추가</button>
+            </div>
+           
+            
+            <div>
+               <button onClick={()=>{ savePlan(); }} className='setPlanRouteSavebutton'>저장하기</button>
+            </div>
+            
+        </div>
+        
      
     </motion.div>
 

@@ -59,7 +59,7 @@ html, body, #root {
 
 /* 이미 선택된 컴포넌트 선택시 */
 .custom-navbar.partial-hide {
-  transform: translateY(30%);
+  transform: translateY(25%);
   opacity: 1;
 }
 

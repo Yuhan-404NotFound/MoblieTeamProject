@@ -21,6 +21,7 @@ function CheckPlanRoutePage()
     }
   }, []);
 
+  // 저장된 게획 삭제 함수
   function deletePlan(indexToDelete) {
     const updatedPlanData = planData.filter((_, index) => index !== indexToDelete);
     setPlanData(updatedPlanData);
@@ -36,42 +37,48 @@ function CheckPlanRoutePage()
         exit={{ opacity: 0, x: 50 }}         // 왼쪽으로 퇴장
         transition={{ duration: 0.3 }}
         className='PlanRouteStyle'>
-        <h1>계획보는곳</h1>
-        {planData.length ? 
-          <ul>
-            {
-              planData.map((planItem, index) => (
-                <div key={index}>
 
-                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <div>{planItem.startDay} ~ {planItem.finalDay}</div>
-                    <button onClick={() => { deletePlan(index); }}>삭제</button>
-                  </div>
+        <div style={{textAlign:"center"}}>
+            <h1>계획보는곳</h1>
+        </div>
+        <hr/>
+        
+        <div className='planListSize'> 
+            {planData.length ? 
+            // 저장된 플랜이 있을 때
+            <div style={{width:"100%"}}>
+               
+                {
+                planData.map((planItem, index) => (
+                    <div key={index} style={{width:"100%"}}>
+                        <hr/>
 
-                  <div>
-                    ===계획 내용===
-                    <ul>
-                      {planItem.planList.map((item, i) => (
-                        <li key={i}>{i + 1}. {item}</li>
-                      ))}
-                    </ul>
+                        {/* 계획 날짜, 삭제버튼*/}
+                        <div style={{ display: 'flex'}}>
+                            <div>{planItem.startDay} ~ {planItem.finalDay}</div>
 
-                    <p>
-                      {
-                        planItem.clear.map((item, idx) => (
-                          <span key={idx}>
-                            {idx + 1}일차: {item ? 'O ' : 'X '}
-                          </span>
-                        ))
-                      }
-                    </p>
-                  </div>
-                </div>
-              ))
-            }
-          </ul>
+                            <button onClick={() => { deletePlan(index); }} className='checkPlanRouteDeleteButton'>삭제</button>
+
+                        </div>
+
+                        {/* 게획 리스트 */}
+                        <div>
+                            <ul>
+                            {
+                                planItem.planList.map((item, i) => (<li key={i}>{i + 1}. {item}</li>))
+                            }
+                             </ul>
+                        </div>
+                            
+                    </div>
+                    ))
+                }
+               
+            </div>
           : <p>저장된 계획이 없습니다.</p>
           }
+        </div>
+        
     </motion.div>
 
   )
