@@ -13,13 +13,17 @@ import PlanPage from './route/planpage/PlanPage.jsx'
 function App() {
 
   return (
-    <>
+    <div className='fullscreen no-drag'>
+
+      
       {/* 라우터 분리 */}
-      <Routes>
-        <Route path="/" element={ <MainPage/> } />
-        <Route path="/calender" element={ <CalendarPage/> } />
-        <Route path="/addplan" element={ <PlanPage/> } />
-      </Routes>
+      <div className="page-container" style={{ height: "calc(100% - 70px)"}}>
+        <Routes>
+          <Route path="/" element={ <MainPage/> } />
+          <Route path="/calender" element={ <CalendarPage/> } />
+          <Route path="/addplan" element={ <PlanPage/> } />
+        </Routes>
+      </div>
 
 
       {/* 하단 네비게이션 바 */}
@@ -44,7 +48,7 @@ function App() {
         </Link>
       </div>
 
-    </>
+    </div>
   )
 }
 

@@ -70,7 +70,7 @@ function PlanPage()
   }, []);
 
   return (
-    <>
+    <div className='getLine componentSize'>
       <div className ='task-list'>
         시작: <input type="date" value={startDay} onChange={(e) => setStartDay(e.target.value)} />
 
@@ -133,7 +133,7 @@ function PlanPage()
       </div>
 
 
-    </>
+    </div>
   )
 }
 

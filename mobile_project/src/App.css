@@ -1,3 +1,32 @@
+/* 드래그 방지*/
+.no-drag {
+  user-select: none;    /* 텍스트 선택 방지 */
+  -webkit-user-drag: none; /* 이미지 등 요소 드래그 방지 */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* 화면 사이즈 지정*/
+.page-container {
+  height: calc(100% - 80px);
+  overflow: hidden;
+  position: relative;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* 전체 화면 채우기 */
+.fullscreen {
+    height: 100%;
+    width: 100%;
+}
+
+
 .custom-navbar {
   position: fixed;
   bottom: 0;
