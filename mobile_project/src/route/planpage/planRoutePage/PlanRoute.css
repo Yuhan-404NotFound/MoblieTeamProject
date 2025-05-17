@@ -1,0 +1,16 @@
+.PlanRouteStyle{
+    margin: 20px;
+    width: 90%;
+    height: calc(100% - 20px);
+
+    background: white;
+  
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    padding: 20px;
+
+}
+
+.getLine3{
+    border: 1px solid green;
+}

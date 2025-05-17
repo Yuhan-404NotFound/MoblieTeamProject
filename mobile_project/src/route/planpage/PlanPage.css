@@ -17,6 +17,20 @@
     height: 100%;
   }
 
-  .getLine{
-    border: 1px solid orange;
-  }
+.getLine{
+  border: 1px solid orange;
+}
+
+.getLine2{
+  border: 1px solid blue;
+}
+
+.contentComponentStyle{
+  height: calc(100% - 70px);
+}
+
+.componentChangeButtonDiv{
+  display: flex;
+  height: 50px;
+}
+
