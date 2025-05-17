@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
+import { motion } from 'framer-motion';
 import './MainPage.css'
 import { ProgressBar } from 'react-bootstrap';
 
@@ -56,8 +57,13 @@ function MainPage()
 
 
   return (
-    <div className='MainPageComponentSize getLine'>
-       {/* 상단 작심삼일 몇일차인지*/}
+    <motion.div
+      initial={{ opacity: 0, x: -100 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, y: -100 }}
+      transition={{ duration: 0.3 }}>
+
+      {/* 상단 작심삼일 몇일차인지*/}
       <div className="task-list ">
           <h1>작심삼일 N일 째</h1>
       </div>
@@ -78,7 +84,7 @@ function MainPage()
       </div>
 
 
-    </div>
+    </motion.div>
   )
 }
 

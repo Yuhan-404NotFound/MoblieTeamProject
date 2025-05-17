@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
+import { motion } from 'framer-motion';
+
 import './PlanPage.css'
 
 function PlanPage()
@@ -70,7 +72,13 @@ function PlanPage()
   }, []);
 
   return (
-    <div className='getLine componentSize'>
+    <motion.div
+      initial={{ opacity: 0, x: 100 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, y: -100 }}
+      transition={{ duration: 0.3 }}
+      className='componentSize'>
+
       <div className ='task-list'>
         시작: <input type="date" value={startDay} onChange={(e) => setStartDay(e.target.value)} />
 
@@ -133,7 +141,7 @@ function PlanPage()
       </div>
 
 
-    </div>
+    </motion.div>
   )
 }
 
