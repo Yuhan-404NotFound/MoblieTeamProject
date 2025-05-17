@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { ProgressBar } from 'react-bootstrap';
+import { motion } from 'framer-motion';
 import Calendar from 'react-calendar';
+
 import 'react-calendar/dist/Calendar.css';
 import './CalendarPage.css';
 
@@ -42,7 +44,13 @@ function CalendarPage() {
   }, []);
 
   return (
-    <div className="calendar-content">
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -100 }}
+      transition={{ duration: 0.3 }}
+      className="calendarComponentStyle">
+
       <Calendar                                               
         onChange={setDate}                                        // 날짜 클릭 시 date 상태 변경
         value={date}                                              // 현재 선택된 날짜 달력에 표시
@@ -61,7 +69,7 @@ function CalendarPage() {
           <p>성취율</p>
           <ProgressBar now={80} label={`${80}%`} /> {/*성취율 값 넣기 (now,lable)*/}
         </div>
-    </div>
+    </motion.div>
   );
 }
 

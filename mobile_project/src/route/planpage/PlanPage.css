@@ -1,34 +1,71 @@
   /* 할 일 목록 스타일 */
   .task-list {
-    margin: 20px auto;    
+    margin: 20px auto;    /* 위아래 20px, 좌우 auto → 중앙 정렬 */
     margin-top: 20px;
     width: 90%;
     max-width: 400px;
     background: white;
   
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     padding: 20px;
   }
   
-  .task-list h2 {
-    margin-bottom: 10px;
-    font-size: 20px;
-    text-align: center;
-  }
-  
-  .task-list ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .task-list li {
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
-    text-align: center;
-  }
-  
-  .task-list li:last-child {
-    border-bottom: none;
-  }
-  
+/* 컴포넌트 사이즈는 부모 요소에 맞춘다 */
+.componentSize{
+  width: 100%;
+  height: 100%;
+}
+
+.getLine{
+  border: 1px solid orange;
+}
+
+.getLine2{
+  border: 1px solid blue;
+}
+
+.contentComponentStyle{
+  height: calc(100% - 90px);
+}
+
+.componentChangeButtonDiv{
+  display: flex;
+  height: 70px;
+}
+
+.PlanCheckbuttonComponentStyle{
+
+  margin-top: 10px;
+  margin-left: 20px;
+  text-align: center;
+
+  width: 120%;
+  height: 100%;
+
+  border-radius: 10px;
+
+  /* 오른쪽 위/아래 둥근 모서리 제거 */
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  padding: 20px;
+}
+
+.PlanSetbuttonComponentStyle{
+
+  margin-top: 10px;
+  margin-right: 15px;
+  text-align: center;
+
+  width: 120%;
+  height: 100%;
+
+  border-radius: 10px;
+
+  /* 오른쪽 위/아래 둥근 모서리 제거 */
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+  padding: 20px;
+}

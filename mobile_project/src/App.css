@@ -1,20 +1,87 @@
+/* 드래그 방지*/
+.no-drag {
+  user-select: none;    /* 텍스트 선택 방지 */
+  -webkit-user-drag: none; /* 이미지 등 요소 드래그 방지 */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* 화면 사이즈 지정*/
+.page-container {
+  height: calc(100% - 80px);
+  overflow: hidden;
+  position: relative;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* 전체 화면 채우기 */
+.fullscreen {
+    height: 100%;
+    width: 100%;
+}
+
+
+/* custom-navbar로 이름 변경 */
 .custom-navbar {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background-color: #f9f9f9;
+
+  bottom: 10px;
+  left: 10px;
+  right: 10px; 
+
+  width: calc(100% - 20px); /* 전체 너비에서 좌우 여백을 뺀 값 */
+  height: 65px;
+  
+  background-color: white;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-top: 1px solid #ddd;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-  z-index: 10;
+  transition: all 0.125s ease;
+  box-shadow: 0 4px 8px rgba(0.2, 0.2, 0.2, 0.5);
+  transform: translateY(0);
+  opacity: 1;
+  z-index: 3;
+
+  border-radius: 18px;
 }
 
+/* 컴포넌트 전환시 네비바 숨기기 */
+.custom-navbar.hidden {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+/* 이미 선택된 컴포넌트 선택시 */
+.custom-navbar.partial-hide {
+  transform: translateY(25%);
+  opacity: 1;
+}
+
+/* 네비바 Link 스타일*/
 .custom-navbar a {
   text-decoration: none;
   color: #000;
   font-size: 16px;
 }
+
+
+.custom-navbar a.active {
+  background-color: #f0f0f0;
+  border-radius: 12px;
+  padding: 4px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  transform: scale(1.1);
+  transition: all 0.125s ease-in-out;
+}
+
+.custom-navbar a {
+  transition: all 0.125s ease-in-out;
+}
+
+

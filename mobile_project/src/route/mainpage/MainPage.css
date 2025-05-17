@@ -1,6 +1,13 @@
-  /* 할 일 목록 스타일 */
+.MainPageComponentSize{
+  height: 100%;
+  width: 100%;
+}
+ 
+ 
+ 
+ /* 할 일 목록 스타일 */
   .task-list {
-    margin: 20px auto;    /* 위아래 20px, 좌우 auto → 중앙 정렬 */
+    margin: 20px auto;    
     margin-top: 20px;
     width: 90%;
     max-width: 400px;
@@ -31,4 +38,15 @@
   .task-list li:last-child {
     border-bottom: none;
   }
+
+
+.todayPlan{
+  width: 100%;
+  height: calc(100% - 140px);
+}
+
+.getLine{
+  border: 1px solid red;
+}
+
   
