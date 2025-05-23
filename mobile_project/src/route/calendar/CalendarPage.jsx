@@ -44,13 +44,16 @@ function CalendarPage() {
   }, []);
 
   return (
+    <>
+    <div className='calenderContainer getLine'>
     <motion.div
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -100 }}
       transition={{ duration: 0.3 }}
       className="calendarComponentStyle">
-
+    
+    
       <Calendar                                               
         onChange={setDate}                                        // 날짜 클릭 시 date 상태 변경
         value={date}                                              // 현재 선택된 날짜 달력에 표시
@@ -63,13 +66,23 @@ function CalendarPage() {
             }
           }
         }} />
-
+      
+      
         { /*테스트용 진행도바*/ }
-        <div style={{width:"90%", marginTop:"20px"}}>
+        <div className='progress_bar getLine'>
           <p>성취율</p>
           <ProgressBar now={80} label={`${80}%`} /> {/*성취율 값 넣기 (now,lable)*/}
         </div>
+        <div className='progress_bar getLine'>
+        <p>성취율</p>
+          <ProgressBar now={80} label={`${80}%`} /> {/*성취율 값 넣기 (now,lable)*/}
+        </div>
+      
     </motion.div>
+    </div>
+    </>
+    
+    
   );
 }
 

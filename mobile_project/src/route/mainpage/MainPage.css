@@ -1,41 +1,42 @@
 .MainPageComponentSize{
   height: 100%;
   width: 100%;
+  background: linear-gradient(to bottom right, #fbe8e0, #d8ccf1);
+
 }
  
  
  
  /* 할 일 목록 스타일 */
-  .task-list {
-    margin: 20px auto;    
-    margin-top: 20px;
+  .task-lis0t1 {
+   
     width: 90%;
     max-width: 400px;
     background: white;
   
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    padding: 20px;
+   
   }
   
-  .task-list h2 {
-    margin-bottom: 10px;
+  .task-list1 h2 {
+   
     font-size: 20px;
     text-align: center;
   }
   
-  .task-list ul {
+  .task-list1 ul {
     list-style: none;
     padding: 0;
   }
   
-  .task-list li {
+  .task-list1 li {
     padding: 8px 0;
     border-bottom: 1px solid #eee;
     text-align: center;
   }
   
-  .task-list li:last-child {
+  .task-list1 li:last-child {
     border-bottom: none;
   }
 

@@ -8,26 +8,31 @@
   flex-direction: column;       /* 필요에 따라 row로 변경 가능 */
   align-items: center;          /* 수평 중앙 */
   text-align: center;
+  background: rgb(255, 255, 255);
+  
+
 } 
 
 
   
   /* 캘린더 전체 박스 스타일 */
   .react-calendar {
-    margin-top: 20px;
-    width: 90%;
-    max-width: 400px;
-    background: white;
+    
+    width: 100vw;
+    background: linear-gradient(to bottom left, #fbe8e0, #d8ccf1);
     border: none;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    
+
+  
+   
     padding: 20px;
   }
   
   /* 캘린더 타일(하나하나 날짜) 스타일 */
   .react-calendar__tile {
     height: 50px;
-    font-size: 16px;
+    font-size: 15px;
+    
   }
   
   /* 오늘 날짜 표시 스타일 */
@@ -48,3 +53,15 @@
 .getLine{
   border: 1px solid red;
 }
+
+.progress_bar {
+  width: 90%;
+  margin-top: 20px;
+}
+
+.calenderContainer {
+  width: 100%;
+  border-radius: 20%;
+}
+
+

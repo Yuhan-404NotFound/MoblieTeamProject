@@ -97,7 +97,7 @@ function MainPage() {
       className="MainPageComponentSize"
     >
       {/* 상단 작심삼일 몇일차인지 */}
-      <div className="task-list">
+      <div className="task-list1">
         {planDay && dayCount ? (
           <h1>작심삼일 {dayCount}일 째</h1>
         ) : (
@@ -106,7 +106,7 @@ function MainPage() {
       </div>
 
       {/* 오늘의 계획 UI */}
-      <div className="task-list todayPlan">
+      <div className="task-list1 todayPlan">
         <p>오늘의 완료 항목</p>
         {Array.isArray(todayPlanComplete) && todayPlanComplete.length > 0 ? (
           todayPlanComplete.map((item, i) => (
