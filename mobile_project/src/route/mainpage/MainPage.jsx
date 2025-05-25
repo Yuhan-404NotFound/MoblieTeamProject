@@ -76,8 +76,9 @@ function MainPage() {
 
     localStorage.setItem('todayPlanData', JSON.stringify(newTodayPlanList));
     setTodayPlanList(newTodayPlanList);
-
     setTodayPlanComplete((prev) => [...prev, completedItem]);
+    setPlanData(updatedPlanData);
+    localStorage.setItem('PlanData', JSON.stringify(updatedPlanData));
   }
 
   // 완료된 항목이 유효할 때만 저장
@@ -97,7 +98,9 @@ function MainPage() {
       className="MainPageComponentSize"
     >
       {/* 상단 작심삼일 몇일차인지 */}
-      <div className="task-list1">
+     <div className='divTest'>
+      <div className='task-list'>
+        <div className='section'>
         {planDay && dayCount ? (
           <h1>작심삼일 {dayCount}일 째</h1>
         ) : (
@@ -106,31 +109,34 @@ function MainPage() {
       </div>
 
       {/* 오늘의 계획 UI */}
-      <div className="task-list1 todayPlan">
-        <p>오늘의 완료 항목</p>
+      <div className='task-list1 todayPlan'>
+        <p>✅ 오늘의 완료 항목</p>
         {Array.isArray(todayPlanComplete) && todayPlanComplete.length > 0 ? (
           todayPlanComplete.map((item, i) => (
-            <div key={i}>- {item}</div>
+            <div key={i} className='habit-card habit-complete'><span>🎉{item}</span></div>
           ))
         ) : (
-          <p style={{ color: '#888' }}>아직 완료한 항목이 없습니다.</p>
+          <p className='empty'>아직 완료한 항목이 없습니다.</p>
         )}
+        </div>
 
-        <hr />
-
-        {planDay ? <p>오늘의 작심삼일</p> : <p>계획 없음</p>}
+        
+        <div className='section'>
+        {planDay ? <p>💪 오늘의 작심삼일</p> : <p>계획 없음</p>}
 
         { Array.isArray(todayPlanList) && todayPlanList.length > 0 ? (
           todayPlanList.map((item, i) => (
-            <div key={i}>
-              - {item}{' '}
-              <button onClick={() => checkComplete(i)}>완료</button>
+            <div key={i} className='habit-card habit-todo'>
+              <span>💪{item}{' '}</span>
+              <button className='complete-btn' onClick={() => checkComplete(i)}>완료</button>
             </div>
           ))
         ) : (
-          <p style={{ color: '#888' }}>할 일이 없습니다.</p>
+          <p className='empty'>할 일이 없습니다.</p>
         )}
       </div>
+      </div>
+     </div>
     </motion.div>
   );
 }

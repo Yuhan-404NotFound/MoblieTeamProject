@@ -1,71 +1,121 @@
-  /* 할 일 목록 스타일 */
-  .task-list {
-    margin: 20px auto;    /* 위아래 20px, 좌우 auto → 중앙 정렬 */
-    margin-top: 20px;
-    width: 90%;
-    max-width: 400px;
-    background: white;
-  
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    padding: 20px;
-  }
-  
-/* 컴포넌트 사이즈는 부모 요소에 맞춘다 */
-.componentSize{
+/* 전체 레이아웃 */
+body {
+  background: linear-gradient(to bottom right, #e0c3fc, #8ec5fc);
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* 전체 PlanPage 컴포넌트 */
+.componentSize {
   width: 100%;
   height: 100%;
+  font-family: 'Pretendard', sans-serif;
+  /*background: #b5def1;*/
+  background: #E0F2FE;
+  
+  
 }
 
-.getLine{
-  border: 1px solid orange;
-}
-
-.getLine2{
-  border: 1px solid blue;
-}
-
-.contentComponentStyle{
-  height: calc(100% - 90px);
-}
-
-.componentChangeButtonDiv{
+/* 버튼 그룹 (토글 버튼 감싸는 div) */
+.componentChangeButtonDiv {
   display: flex;
-  height: 70px;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  gap: 8px;
 }
 
-.PlanCheckbuttonComponentStyle{
-
-  margin-top: 10px;
-  margin-left: 20px;
+/* 계획 확인 버튼 */
+.PlanCheckbuttonComponentStyle {
+  /*flex: 1;
   text-align: center;
+  border-radius: 12px;
+  background: white;
+  color: #4b0082;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 15px 0;
+  margin: 0 auto;
+  transition: transform 0.2s, background 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;*/
 
-  width: 120%;
-  height: 100%;
-
-  border-radius: 10px;
-
-  /* 오른쪽 위/아래 둥근 모서리 제거 */
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  padding: 20px;
+  flex: 1;
+  text-align: center;
+  border-radius: 12px;
+  background: white;
+  color: #000000;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 15px 0;
+  width: 90%;
+  margin: 25px 30px 0;
+  transition: transform 0.2s, background 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.PlanSetbuttonComponentStyle{
+.PlanCheckbuttonComponentStyle:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #c6b1ec, #e9dbf8);
+}
 
-  margin-top: 10px;
-  margin-right: 15px;
+/* 계획 작성 버튼 */
+.PlanSetbuttonComponentStyle {
+  
+  flex: 1;
   text-align: center;
+  border-radius: 12px;
+  background: white;
+  color: #000000;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 15px 0;
+  width: 90%;
+  margin: 25px 30px 0;
+  transition: transform 0.2s, background 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  width: 120%;
-  height: 100%;
+.PlanSetbuttonComponentStyle:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #c6b1ec, #e9dbf8);
+}
 
-  border-radius: 10px;
+.PlanCheckbuttonComponentStyle h1, .PlanSetbuttonComponentStyle h1 {
+  margin: 0;
+  font-size: 1rem;
+}
 
-  /* 오른쪽 위/아래 둥근 모서리 제거 */
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
-  padding: 20px;
+/* 콘텐츠 표시 영역 */
+.contentComponentStyle {
+  height: calc(100% - 100px);
+  padding: 10px;
+}
+
+/* 저장 버튼 (예시용, 필요하면 페이지에 추가) */
+.save-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #a18cd1, #fbc2eb);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-top: 20px;
+}
+
+.save-button:hover {
+  background: linear-gradient(90deg, #fbc2eb, #a18cd1);
+  transform: scale(1.03);
 }

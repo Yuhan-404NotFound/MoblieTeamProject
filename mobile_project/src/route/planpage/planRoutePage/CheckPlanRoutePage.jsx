@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
-import { motion } from 'framer-motion';
+import { motion, px } from 'framer-motion';
 
 import './PlanRoute.css'
 
@@ -41,7 +41,7 @@ function CheckPlanRoutePage()
         <div style={{textAlign:"center"}}>
             <h1>계획보는곳</h1>
         </div>
-        <hr/>
+        
         
         <div className='planListSize'> 
 
@@ -51,11 +51,11 @@ function CheckPlanRoutePage()
                
                 {
                 planData.map((planItem, index) => (
-                    <div key={index} style={{width:"100%"}}>
+                    <div key={index} style={{marginBottom: "12px"/*width:"100%"*/}}>
                         <hr/>
 
                         {/* 계획 날짜, 삭제버튼*/}
-                        <div style={{ display: 'flex'}}>
+                        <div className="planDateRow" >
                             <div>{planItem.startDay} ~ {planItem.finalDay}</div>
 
                             <button onClick={() => { deletePlan(index); }} className='checkPlanRouteDeleteButton'>삭제</button>
@@ -64,7 +64,7 @@ function CheckPlanRoutePage()
 
                         {/* 게획 리스트 */}
                         <div>
-                            <ul>
+                            <ul className="planItemList">
                             {
                                 planItem.planList.map((item, i) => (<li key={i}>{i + 1}. {item}</li>))
                             }
@@ -76,7 +76,7 @@ function CheckPlanRoutePage()
                 }
                
             </div>
-          : <p>저장된 계획이 없습니다.</p>
+          : <p style={{marginTop: "80px"}}>저장된 계획이 없습니다.</p>
           }
         </div>
         

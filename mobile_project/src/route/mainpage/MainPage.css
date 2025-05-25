@@ -1,53 +1,97 @@
-.MainPageComponentSize{
+/* 전체 레이아웃 */
+.MainPageComponentSize {
   height: 100%;
   width: 100%;
-  background: linear-gradient(to bottom right, #fbe8e0, #d8ccf1);
-
+  background: linear-gradient(to bottom right, #d0ebff, #b0d6e7, #cdeefa); /*색깔 결정장애 왔음*/
+  /*background: linear-gradient(to bottom right, #f3e5f5, #fce4ec);*/
+  /*background: linear-gradient(to bottom right, #e0c3fc, #8ec5fc);*/
+  /*background: rgb(131, 131, 221);*/
+  font-family: 'Pretendard', sans-serif;
+  color: #333;
+  padding: 20px;
+  box-sizing: border-box;
 }
- 
- 
- 
- /* 할 일 목록 스타일 */
-  .task-lis0t1 {
-   
-    width: 90%;
-    max-width: 400px;
-    background: white;
-  
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-   
-  }
-  
-  .task-list1 h2 {
-   
-    font-size: 20px;
-    text-align: center;
-  }
-  
-  .task-list1 ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .task-list1 li {
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
-    text-align: center;
-  }
-  
-  .task-list1 li:last-child {
-    border-bottom: none;
-  }
 
+/* 리스트 컨테이너 (네모 틀 대신 여백만) */
+.task-list {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* 요소 간 여백 */
+}
 
-.todayPlan{
+.section {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.habit-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.habit-complete {
+  background-color: #06D6A0; /* 초록 */
+}
+
+.habit-todo {
+  background-color: #FFD166; /* 노랑 */
+}
+.complete-btn {
+  background-color: white;
+  color: #333;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.complete-btn:hover {
+  background-color: #eee;
+  transform: scale(1.05);
+}
+
+.empty {
+  color: #aaa;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+/* 제목 강조 */
+.task-list li .title {
+  font-weight: 600;
+  color: #4b0082;
+}
+
+/* 서브텍스트 (날짜 등) */
+.task-list1 li .subtitle {
+  font-size: 13px;
+  color: #999;
+}
+
+/* 리스트 hover 효과 */
+.task-list1 li:hover {
+  background-color: rgba(128, 0, 128, 0.05);
+  border-radius: 6px;
+  padding-left: 6px;
+}
+
+/* todayPlan도 공간감 있게 */
+.todayPlan {
   width: 100%;
   height: calc(100% - 140px);
+  overflow-y: auto;
+  padding: 10px 0;
+  box-sizing: border-box;
 }
 
-.getLine{
-  border: 1px solid red;
-}
-
-  

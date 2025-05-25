@@ -62,7 +62,7 @@ function PlanSetButton(){
       initial={{ opacity: 0, x: 100 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.3 }}
-      className='PlanSetbuttonComponentStyle '>
+      className='PlanSetbuttonComponentStyle'>
       
       <h1>← 3일 플랜 세우기</h1>
     </motion.div>

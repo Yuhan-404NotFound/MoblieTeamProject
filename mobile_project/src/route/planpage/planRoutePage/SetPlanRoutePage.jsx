@@ -76,7 +76,7 @@ function SetPlanRoutePage()
         className='PlanRouteStyle'>
 
         {/* 상단 문구*/}
-        <div style={{textAlign:"center"}}>
+        <div style={{ textAlign: "center", fontWeight: "bold", color:'black'}}>
             <h1>작심삼일</h1>
             <hr/>
         </div>
@@ -100,7 +100,7 @@ function SetPlanRoutePage()
                     className='dateInputStyle'/>
 
                 { /* 시작날짜가 지정되었을때만 finalDay 표시*/ }
-                 {startDay ? <> ~ {finalDay} </>: null}
+                 {startDay && <span className="dateDisplay">~ {finalDay}</span>}
             </div>
         
             

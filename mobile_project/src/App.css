@@ -12,6 +12,7 @@
   height: calc(100% - 80px);
   overflow: hidden;
   position: relative;
+  background: linear-gradient(to bottom right, #d8ccf1, #fbe8e0);
 }
 
 html, body, #root {
