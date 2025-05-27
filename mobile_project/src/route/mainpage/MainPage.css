@@ -2,10 +2,7 @@
 .MainPageComponentSize {
   height: 100%;
   width: 100%;
-  background: #E0F2FE; /*색깔 결정장애 왔음*/
-  /*background: linear-gradient(to bottom right, #f3e5f5, #fce4ec);*/
-  /*background: linear-gradient(to bottom right, #e0c3fc, #8ec5fc);*/
-  /*background: rgb(131, 131, 221);*/
+  background: #E0F2FE; 
   font-family: 'Pretendard', sans-serif;
   color: #333;
   padding: 20px;
@@ -18,12 +15,15 @@
   display: flex;
   flex-direction: column;
   gap: 30px; /* 요소 간 여백 */
+  
+  
 }
 
 .section {
   font-size: 1.2rem;
   color: #333;
   margin-bottom: 10px;
+
 }
 
 .habit-card {
@@ -100,6 +100,7 @@
   height: 1000px;
   background: white;
   border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
   
   
 }

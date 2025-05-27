@@ -54,10 +54,10 @@
   background: white;
   border-radius: 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  padding: 20px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 6px;
 }
 .progressBox p {
   font-weight: bold;
@@ -71,12 +71,13 @@
 }
 
 .progress_bar p {
-  margin: 5px 0;
+  margin: 0;
 }
+
 
 /* 진행 항목 스타일 */
 .progress_list p, li {
-  background: #FFD166; /* 색깔 추천 좀. 아니면 랜덤하게 생성되게 만들어? */
+  font-family:sans-serif;
   color: #333;
   padding: 10px 16px;
   border-radius: 12px;
@@ -84,12 +85,11 @@
   font-weight: bold;
   font-size: 0.95rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
+} 
 
-.progress_list ul{
-  list-style: none;
-  padding-left: 0;
-}
+
+
+
 
 
 
@@ -97,3 +97,30 @@
 .getLine{
   border: 1px solid red;
 }
+
+
+/* 기본 스타일 공통 */
+.task-card {
+  
+  
+  padding: 10px 16px;
+  border-radius: 12px;
+  margin: 5px 0;
+  color: #333;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  
+}
+
+
+/* data-index 값에 따른 배경색 지정 */
+.task-card[data-index="0"] { background: #FFDAC1; }
+.task-card[data-index="1"] { background: #E2F0CB; }
+.task-card[data-index="2"] { background: #B5EAD7; }
+.task-card[data-index="3"] { background: #C7CEEA; }
+.task-card[data-index="4"] { background: #FFB7B2; }
+.task-card[data-index="5"] { background: #FF9AA2; }
+.task-card[data-index="6"] { background: #D5AAFF; }
+.task-card[data-index="7"] { background: #A2E1DB; }
+.task-card[data-index="8"] { background: #FFFFD1; }
+
+

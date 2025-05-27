@@ -2,12 +2,13 @@
 .PlanRouteStyle {
   margin: 20px auto;
   width: 90%;
-  height: calc(100% - 20px);
+  height: 100%;
   background: white;
   border-radius: 12px;
   padding: 20px;
   box-sizing: border-box;
   font-family: 'Pretendard', sans-serif;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
 
 /* 플랜 리스트 */
@@ -118,7 +119,7 @@
 
 /* 삭제 버튼 */
 .checkPlanRouteDeleteButton {
-  background-color: #55cf84;
+  background-color: #4A90E2;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -140,10 +141,10 @@
   align-items: center;
   padding: 6px 12px;
   margin-bottom: 4px;
-  background-color: #f8f4fd;
+  background-color: #e1f8fc;
   border-radius: 6px;
   font-size: 0.9rem;
-  color: #431266;
+  color: #333;
 }
 
 /* 리스트 아이템 */
@@ -157,4 +158,51 @@
   padding: 6px 0;
   font-size: 0.9rem;
   color: #333;
+}
+
+
+.pastel-0 { background-color: #FFDAC1; }
+.pastel-1 { background-color: #E2F0CB; }
+.pastel-2 { background-color: #B5EAD7; }
+.pastel-3 { background-color: #C7CEEA; }
+.pastel-4 { background-color: #FFB7B2; }
+.pastel-5 { background-color: #FF9AA2; }
+.pastel-6 { background-color: #D5AAFF; }
+.pastel-7 { background-color: #A2E1DB; }
+.pastel-8 { background-color: #FFFFD1; }
+
+.pastel-0, .pastel-1, .pastel-2,
+.pastel-3, .pastel-4, .pastel-5,
+.pastel-6, .pastel-7, .pastel-8 {
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  color: #333;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.scroll-wrapper {
+  max-height: calc(100vh - 260px);  /* 충분한 높이 확보 */
+  overflow-y: auto;               /* 항상 스크롤바 보이게 */
+  padding-right: 8px;
+ 
+  border-radius: 12px;
+  background: #fff;
+  
+}
+
+/* 스크롤바 디자인 */
+.scroll-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scroll-wrapper::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+.scroll-wrapper::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+  border-radius: 10px;
 }

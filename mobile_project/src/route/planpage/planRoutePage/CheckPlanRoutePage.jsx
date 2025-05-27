@@ -47,7 +47,7 @@ function CheckPlanRoutePage()
 
             {planData.length ? 
             // 저장된 플랜이 있을 때
-            <div style={{width:"100%"}}>
+            <div style={{width:"100%"}}  className="scroll-wrapper">
                
                 {
                 planData.map((planItem, index) => (
@@ -66,7 +66,7 @@ function CheckPlanRoutePage()
                         <div>
                             <ul className="planItemList">
                             {
-                                planItem.planList.map((item, i) => (<li key={i}>{i + 1}. {item}</li>))
+                                planItem.planList.map((item, i) => (<li key={i}><span>📝</span>{i+1}. {item}</li>))
                             }
                              </ul>
                         </div>
