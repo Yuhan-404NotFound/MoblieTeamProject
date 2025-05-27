@@ -60,8 +60,7 @@ body {
 
 .PlanCheckbuttonComponentStyle:hover {
   transform: scale(1.03);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  background: linear-gradient(135deg, #c6b1ec, #e9dbf8);
+  background: beige;
 }
 
 /* 계획 작성 버튼 */
@@ -85,8 +84,7 @@ body {
 
 .PlanSetbuttonComponentStyle:hover {
   transform: scale(1.03);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  background: linear-gradient(135deg, #c6b1ec, #e9dbf8);
+  background:beige;
 }
 
 .PlanCheckbuttonComponentStyle h1, .PlanSetbuttonComponentStyle h1 {
@@ -101,7 +99,7 @@ body {
 }
 
 /* 저장 버튼 (예시용, 필요하면 페이지에 추가) */
-.save-button {
+/* .save-button {
   width: 100%;
   padding: 12px;
   background: linear-gradient(90deg, #a18cd1, #fbc2eb);
@@ -113,9 +111,9 @@ body {
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
   margin-top: 20px;
-}
+} */
 
-.save-button:hover {
+/* .save-button:hover {
   background: linear-gradient(90deg, #fbc2eb, #a18cd1);
   transform: scale(1.03);
-}
+} */
