@@ -7,15 +7,21 @@ import './PlanRoute.css'
 function CheckPlanRoutePage()
 {
   const [planData, setPlanData] = useState([]); // 초기값을 빈 배열로 설정
+  const [todayCompletedPlan, setTodayCompletedPlan] = useState([]); // 초기값을 빈 배열로 설정
+  const [todayPlanData, setTodayPlanData] = useState([]); // 초기값을 빈 배열로 설정
     
   // 저장된 계획 불러오기
   useEffect(() => {
     // 로컬 스토리지 PlanData JSON으로 파싱
     const savedPlanData = JSON.parse(localStorage.getItem('PlanData'));
+    const savedTodayCompletedPlan = JSON.parse(localStorage.getItem('todayCompletedPlan'));
+    const savedTodayPlanData = JSON.parse(localStorage.getItem('todayPlanData'));
 
     // 배열 구조인지 체킹 if문 (Iteral 방지)
     if (savedPlanData && Array.isArray(savedPlanData)) {
       setPlanData(savedPlanData);
+      setTodayCompletedPlan(savedTodayCompletedPlan);
+      setTodayPlanData(savedTodayPlanData);
     } else {
       setPlanData([]); 
     }
@@ -27,6 +33,8 @@ function CheckPlanRoutePage()
     setPlanData(updatedPlanData);
 
     localStorage.setItem('PlanData', JSON.stringify(updatedPlanData));
+    localStorage.setItem('todayCompletedPlan', JSON.stringify(updatedPlanData));
+    localStorage.setItem('todayPlanData', JSON.stringify(updatedPlanData));
   }
 
   return (
@@ -47,7 +55,7 @@ function CheckPlanRoutePage()
 
             {planData.length ? 
             // 저장된 플랜이 있을 때
-            <div style={{width:"100%"}}  className="scroll-wrapper">
+            <div style={{width:"100%"}}>
                
                 {
                 planData.map((planItem, index) => (
@@ -66,7 +74,7 @@ function CheckPlanRoutePage()
                         <div>
                             <ul className="planItemList">
                             {
-                                planItem.planList.map((item, i) => (<li key={i}><span>📝</span>{i+1}. {item}</li>))
+                                planItem.planList.map((item, i) => (<li key={i}>{i + 1}. {item}</li>))
                             }
                              </ul>
                         </div>
