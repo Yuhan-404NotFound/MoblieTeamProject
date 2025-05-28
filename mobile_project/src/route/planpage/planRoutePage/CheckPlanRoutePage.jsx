@@ -9,6 +9,7 @@ function CheckPlanRoutePage()
   const [planData, setPlanData] = useState([]); // 초기값을 빈 배열로 설정
   const [todayCompletedPlan, setTodayCompletedPlan] = useState([]); // 초기값을 빈 배열로 설정
   const [todayPlanData, setTodayPlanData] = useState([]); // 초기값을 빈 배열로 설정
+  const [lastSavedDate, setLastSavedDate] = useState([]); // 초기값을 빈 배열로 설정
     
   // 저장된 계획 불러오기
   useEffect(() => {
@@ -16,12 +17,14 @@ function CheckPlanRoutePage()
     const savedPlanData = JSON.parse(localStorage.getItem('PlanData'));
     const savedTodayCompletedPlan = JSON.parse(localStorage.getItem('todayCompletedPlan'));
     const savedTodayPlanData = JSON.parse(localStorage.getItem('todayPlanData'));
+    const savedLastSavedDate = localStorage.getItem('lastSavedDate');
 
     // 배열 구조인지 체킹 if문 (Iteral 방지)
     if (savedPlanData && Array.isArray(savedPlanData)) {
       setPlanData(savedPlanData);
       setTodayCompletedPlan(savedTodayCompletedPlan);
       setTodayPlanData(savedTodayPlanData);
+      setLastSavedDate(savedLastSavedDate);
     } else {
       setPlanData([]); 
     }
@@ -35,6 +38,7 @@ function CheckPlanRoutePage()
     localStorage.setItem('PlanData', JSON.stringify(updatedPlanData));
     localStorage.setItem('todayCompletedPlan', JSON.stringify(updatedPlanData));
     localStorage.setItem('todayPlanData', JSON.stringify(updatedPlanData));
+    localStorage.setItem('lastSavedDate', updatedPlanData);
   }
 
   return (
