@@ -4,11 +4,11 @@ import './MainPage.css';
 import { ProgressBar } from 'react-bootstrap';
 
 function MainPage() {
-  const [planData, setPlanData] = useState([]);             // 전체 계획 목록
-  const [todayPlan, setTodayPlan] = useState([]);           // 오늘 해당되는 플랜 리스트
-  const [planDay, setPlanDay] = useState(false);            // 오늘 계획이 있는지 여부
-  const [dayCount, setDayCount] = useState(null);           // 작심삼일 며칠째
-  const [todayPlanList, setTodayPlanList] = useState([]);   // 오늘의 미완료 리스트
+  const [planData, setPlanData] = useState([]);                   // 전체 계획 목록
+  const [todayPlan, setTodayPlan] = useState([]);                 // 오늘 해당되는 플랜 리스트
+  const [planDay, setPlanDay] = useState(false);                  // 오늘 계획이 있는지 여부
+  const [dayCount, setDayCount] = useState(null);                 // 작심삼일 며칠째
+  const [todayPlanList, setTodayPlanList] = useState([]);         // 오늘의 미완료 리스트
   const [todayPlanComplete, setTodayPlanComplete] = useState([]); // 오늘의 완료 리스트
 
   // 최초 로드 시 PlanData 로드
@@ -46,7 +46,9 @@ function MainPage() {
         const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
         setDayCount(diffDays);
 
-        const todayStr = today.toISOString().split('T')[0];
+        // const todayStr = today.toISOString().split('T')[0];
+        // 한국 기준 날짜 문자열로 변환 (YYYY-MM-DD) 이거 병합 됨
+        const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
         const lastSavedDate = localStorage.getItem('lastSavedDate');
 
         if (lastSavedDate !== todayStr) {
