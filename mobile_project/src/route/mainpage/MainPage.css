@@ -1,9 +1,10 @@
 /* 전체 레이아웃 */
+/* 오늘의 완료 항목 */
 .MainPageComponentSize {
   height: 100%;
   width: 100%;
-  background: #E0F2FE; 
-  font-family: 'Pretendard', sans-serif;
+  background: #FCE4EC;
+  font-family: sans-serif;
   color: #333;
   padding: 20px;
   box-sizing: border-box;
@@ -14,11 +15,13 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 30px; /* 요소 간 여백 */
+  gap: 30px; 
+  
   
   
 }
 
+/* 오늘의 작심삼일 */
 .section {
   font-size: 1.2rem;
   color: #333;
@@ -26,35 +29,17 @@
 
 }
 
-.habit-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  border-radius: 12px;
-  color: white;
-  font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  font-size: 1rem;
-  margin-bottom: 10px;
-}
-
-.habit-complete {
-  background-color: #06D6A0; /* 초록 */
-}
-
-.habit-todo {
-  background-color: #FFD166; /* 노랑 */
-}
+/* 완료 버튼 */
 .complete-btn {
   background-color: white;
   color: #333;
   border: none;
   border-radius: 20px;
   padding: 5px 12px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
+  
 }
 
 .complete-btn:hover {
@@ -62,29 +47,15 @@
   transform: scale(1.05);
 }
 
+/* 비어있을때 */
 .empty {
   color: #aaa;
   font-style: italic;
   font-size: 0.9rem;
 }
-/* 제목 강조 */
-.task-list li .title {
-  font-weight: 600;
-  color: #4b0082;
-}
 
-/* 서브텍스트 (날짜 등) */
-.task-list1 li .subtitle {
-  font-size: 13px;
-  color: #999;
-}
 
-/* 리스트 hover 효과 */
-.task-list1 li:hover {
-  background-color: rgba(128, 0, 128, 0.05);
-  border-radius: 6px;
-  padding-left: 6px;
-}
+
 
 /* todayPlan도 공간감 있게 */
 .todayPlan {
@@ -101,7 +72,63 @@
   background: white;
   border-radius: 8px;
   box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  overflow-y: auto;  
   
+}
+
+/*전체적인 task-card 옵션*/
+.task-card {  
   
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px 12px 8px;
+  margin: 6px 0 10px 0;
+  border-radius: 12px;
+  color: #f8f8f8;
+  font-weight: bold;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  
+}
+
+
+/* data-index 값에 따른 카드 색상 지정 */
+.task-card[data-index="0"],
+.task-card[data-index="5"],
+.task-card[data-index="10"],
+.task-card[data-index="15"],
+.task-card[data-index="20"] {
+  background: #FF8A80;
+}
+
+.task-card[data-index="1"],
+.task-card[data-index="6"],
+.task-card[data-index="11"],
+.task-card[data-index="16"] {
+  background: #FFB74D;
+}
+
+.task-card[data-index="2"],
+.task-card[data-index="7"],
+.task-card[data-index="12"],
+.task-card[data-index="17"] {
+  background: #FFD54F;
+}
+
+.task-card[data-index="3"],
+.task-card[data-index="8"],
+.task-card[data-index="13"],
+.task-card[data-index="18"] {
+  background: #81C784;
+}
+
+.task-card[data-index="4"],
+.task-card[data-index="9"],
+.task-card[data-index="14"],
+.task-card[data-index="19"] {
+  background: #4FC3F7;
 }
 

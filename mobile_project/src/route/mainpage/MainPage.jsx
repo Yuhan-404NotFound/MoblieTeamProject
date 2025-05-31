@@ -111,12 +111,12 @@ function MainPage() {
       </div>
 
       {/* 오늘의 계획 UI */}
-      <div className='task-list1 todayPlan'>
+      <div className='todayPlan'>
         <p>✅ 오늘의 완료 항목</p>
         {Array.isArray(todayPlanComplete) && todayPlanComplete.length > 0 ? (
           todayPlanComplete.map((item, i) => (
-            <div key={i} className='habit-card habit-complete'><span>🎉{item}</span></div>
-          ))
+            <div key={i} className='task-card' data-index={i}><span>🎉&nbsp;&nbsp;{item}</span></div>
+          ))  
         ) : (
           <p className='empty'>아직 완료한 항목이 없습니다.</p>
         )}
@@ -128,8 +128,8 @@ function MainPage() {
 
         { Array.isArray(todayPlanList) && todayPlanList.length > 0 ? (
           todayPlanList.map((item, i) => (
-            <div key={i} className='habit-card habit-todo'>
-              <span>💪{item}{' '}</span>
+            <div key={i} className='task-card' data-index={i}>
+              <span>📌&nbsp;&nbsp;{item}{' '}</span>
               <button className='complete-btn' onClick={() => checkComplete(i)}>완료</button>
             </div>
           ))

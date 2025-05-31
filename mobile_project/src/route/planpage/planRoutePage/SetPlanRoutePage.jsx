@@ -5,11 +5,6 @@ import { motion } from 'framer-motion';
 
 function SetPlanRoutePage()
 {
-  const pastelColors = [
-    '#FFDAC1', '#E2F0CB', '#B5EAD7',
-    '#C7CEEA', '#FFB7B2', '#FF9AA2',
-    '#D5AAFF', '#A2E1DB', '#FFFFD1',
-  ];
   
   const [planData, setPlanData] = useState([]); // 초기값을 빈 배열로 설정
 
@@ -88,18 +83,20 @@ function SetPlanRoutePage()
         </div>
         
         {/* 추가한 플랜 리스트 */}
-        <div className='getLine3 setPlanRouteList' >
-        <ul>
-  {planList.map((item, i) => {
-    const className = `pastel-${i % 9}`; // 0 ~ 8까지 반복
-    return (
-      <li key={i} className={className}>
-        {item}
-      </li>
-    );
-  })}
-</ul>
-        </div>
+
+        <div className='setPlanRouteList'>
+          {planList.length > 0 ? (
+            <div style={{ width: "100%" }}>
+              {planList.map((item, i) => (
+                <div key={i} className='task-card' data-index={i}>
+                  📌&nbsp;&nbsp;{item}
+                  </div>
+                  ))}
+                  </div>
+                  ) : (
+                    <p className='empty' style={{ marginTop: "80px"}}> 계획을 추가해주세요.</p>
+                    )}
+                  </div>
         
 
 

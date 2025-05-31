@@ -1,6 +1,5 @@
 /* 전체 레이아웃 */
 body {
-  
   font-family: 'Noto Sans KR', sans-serif;
   margin: 0;
   padding: 0;
@@ -11,7 +10,7 @@ body {
   width: 100%;
   height: 100%;
   font-family: 'Pretendard', sans-serif;
-  background: #E0F2FE;
+  background: #FCE4EC;
   
   
 }
@@ -42,6 +41,7 @@ body {
   justify-content: center;
   align-items: center;
   box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  cursor: pointer;
 }
 
 .PlanCheckbuttonComponentStyle:hover {
@@ -66,6 +66,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .PlanSetbuttonComponentStyle:hover {

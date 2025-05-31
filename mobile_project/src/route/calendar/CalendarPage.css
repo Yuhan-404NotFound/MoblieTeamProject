@@ -1,7 +1,6 @@
 
 /* 캘린더 전체 컨테이너 */
 .calenderContainer {
-  background: #E0F2FE;
   width: 100%;
   height: 1000px;
   max-width: 600px;
@@ -10,7 +9,7 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
 /* 캘린더 컴포넌트 */
@@ -36,12 +35,7 @@
   transition: all 0.3s ease;
 }
 
-/* 오늘 날짜 스타일 */
-.react-calendar__tile--now {
-  background: #b3dcfc;
-  color: #333;
-  font-weight: bold;
-}
+
 
 /* 표시된 날짜 스타일 */
 .marked {
@@ -49,78 +43,54 @@
   color: #333;
 }
 
-/* 성취율 박스 */
+/* 성취율 div */
 .progressBox {
   background: white;
   border-radius: 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  padding: 16px;
+  padding: 8px 12px;
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  flex-direction: column;  
+  overflow-y: auto;  
 }
 .progressBox p {
   font-weight: bold;
   font-size: 1rem;
 }
-
-/* 진행 항목 라인 */
-.progress_bar hr {
-  border: none;
-  border-top: 1px solid #eee;
+.progress_bar {
+  height: 50px;
 }
-
 .progress_bar p {
-  margin: 0;
+  margin: 2px 0;
+  height: 26px;
 }
+
+
 
 
 /* 진행 항목 스타일 */
 .progress_list p, li {
-  font-family:sans-serif;
-  color: #333;
-  padding: 10px 16px;
+  
+  color: #AAAAAA;
   border-radius: 12px;
-  margin: 5px 0;
-  font-weight: bold;
-  font-size: 0.95rem;
+  padding: 8px 12px;  /* 10px 16px → 8px 12px */
+  margin: 4px 0; 
+  font-size: 0.9rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 } 
 
-
-
-
-
-
-
-
-.getLine{
-  border: 1px solid red;
+/* 크기 맞추기 위한 ul */
+.progress_list ul{
+  font-family: sans-serif;
+  width:100%;
+  padding: 0;
+  margin: 0;
 }
 
 
-/* 기본 스타일 공통 */
-.task-card {
-  
-  
-  padding: 10px 16px;
-  border-radius: 12px;
-  margin: 5px 0;
-  color: #333;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  
-}
 
 
-/* data-index 값에 따른 배경색 지정 */
-.task-card[data-index="0"] { background: #FFDAC1; }
-.task-card[data-index="1"] { background: #E2F0CB; }
-.task-card[data-index="2"] { background: #B5EAD7; }
-.task-card[data-index="3"] { background: #C7CEEA; }
-.task-card[data-index="4"] { background: #FFB7B2; }
-.task-card[data-index="5"] { background: #FF9AA2; }
-.task-card[data-index="6"] { background: #D5AAFF; }
-.task-card[data-index="7"] { background: #A2E1DB; }
-.task-card[data-index="8"] { background: #FFFFD1; }
+
+
 
 

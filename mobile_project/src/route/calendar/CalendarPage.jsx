@@ -125,7 +125,7 @@ function CalendarPage() {
       >
         <div className='progress_bar'> {/*컴포넌트 바 임의 수정*/}
           <p>
-            성취율 {selectedPlan ? `${selectedPlan.startDay} ~ ${selectedPlan.finalDay}` : ''}
+            ⭐ 성취율 {selectedPlan ? `${selectedPlan.startDay} ~ ${selectedPlan.finalDay}` : ''} ⭐
           </p>
           { /*테스트용 진행도바*/ }
           <ProgressBar now={percent} label={percent + "%"} />   {/*성취율 값 넣기 (now,lable)*/}
@@ -137,9 +137,9 @@ function CalendarPage() {
             selectedPlan && selectedPlan.planList ? ( //선택된 날짜의 계획과 
               <ul>
                 {selectedPlan.planList.map((item, i) => ( 
-                  <li key={i} className='task-card.yellow'><span>🔥{i+1}. {item}</span></li>))}
+                  <li key={i} className='task-card' data-index={i}><span>✏️&nbsp;&nbsp;{item}</span></li>))}
               </ul>) : (
-                <p>저장된 계획이 없습니다.</p>
+                <p className='empty'>저장된 계획이 없습니다.</p>
                 )
               }
 

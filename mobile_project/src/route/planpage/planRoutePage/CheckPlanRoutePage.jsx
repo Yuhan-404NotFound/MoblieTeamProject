@@ -52,6 +52,7 @@ function CheckPlanRoutePage()
 
         <div style={{textAlign:"center"}}>
             <h1>계획보는곳</h1>
+            
         </div>
         
         
@@ -76,11 +77,11 @@ function CheckPlanRoutePage()
 
                         {/* 게획 리스트 */}
                         <div>
-                            <ul className="planItemList">
-                            {
-                                planItem.planList.map((item, i) => (<li key={i}>{i + 1}. {item}</li>))
-                            }
-                             </ul>
+                            {planItem.planList.map((item, i) => (
+                              <div key={i} className='task-card' data-index={i}>📌&nbsp;&nbsp;
+                                 {item}
+                                </div>
+                            ))}
                         </div>
                             
                     </div>
@@ -88,7 +89,7 @@ function CheckPlanRoutePage()
                 }
                
             </div>
-          : <p style={{marginTop: "80px"}}>저장된 계획이 없습니다.</p>
+          : <p className = 'empty' style={{marginTop: "80px"}}>저장된 계획이 없습니다.</p>
           }
         </div>
         
