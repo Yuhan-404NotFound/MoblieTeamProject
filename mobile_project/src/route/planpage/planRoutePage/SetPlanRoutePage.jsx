@@ -20,9 +20,9 @@ function SetPlanRoutePage()
     if (savedPlanData && Array.isArray(savedPlanData)) {
         setPlanData(savedPlanData);
     }
-    }, []);
+  }, []);
 
-    // 시작 날짜(StartDay)가 변할 때마다 종료 날짜(finalDay)를 자동으로 계산
+  // 시작 날짜(StartDay)가 변할 때마다 종료 날짜(finalDay)를 자동으로 계산
   useEffect(() => {
     // startDay State 값이 있을때만 실행
     if (startDay) {
@@ -52,17 +52,19 @@ function SetPlanRoutePage()
 
     // 저장할 계획 객체 생성
     const newPlanData = {
-      startDay: startDay,
-      finalDay: finalDay,
-      planList: planList,
-      clear: clear,
+      startDay: startDay,   // 시작 날짜
+      finalDay: finalDay,   // 끝 날짜
+      planList: planList,   // 계획 리스트
+      clear: clear,         // 완료 여부 (사용 X)
     };
 
     // 새로운 계획을 planData 배열에 추가
     const updatedPlanData = [...planData, newPlanData];
+
+    // Plan관리 State Set
     setPlanData(updatedPlanData);
 
-    // 로컬스토리지에 저장
+    // 로컬스토리지에 저장 (Json 형식으로 저장한다.)
     localStorage.setItem('PlanData', JSON.stringify(updatedPlanData));
   }
 
@@ -83,20 +85,23 @@ function SetPlanRoutePage()
         </div>
         
         {/* 추가한 플랜 리스트 */}
-
         <div className='setPlanRouteList'>
-          {planList.length > 0 ? (
-            <div style={{ width: "100%" }}>
-              {planList.map((item, i) => (
-                <div key={i} className='task-card' data-index={i}>
-                  📌&nbsp;&nbsp;{item}
-                  </div>
-                  ))}
-                  </div>
-                  ) : (
-                    <p className='empty' style={{ marginTop: "80px"}}> 계획을 추가해주세요.</p>
-                    )}
-                  </div>
+          {
+            planList.length > 0 ? (
+              <div style={{ width: "100%" }}>
+                {
+                  planList.map((item, i) => (
+                    <div key={i} className='task-card' data-index={i}>
+                      📌&nbsp;&nbsp;{item}
+                    </div> 
+                  ))
+                }
+              </div>
+            ) : (
+              <p className='empty' style={{ marginTop: "80px"}}> 계획을 추가해주세요.</p>
+            )
+          }
+        </div>
         
 
 

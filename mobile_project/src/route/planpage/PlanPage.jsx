@@ -26,7 +26,7 @@ function PlanPage()
         }
       </div>
 
-      {/* 컨텐츠 */}
+      {/* 컴포넌트트 */}
       <div className='contentComponentStyle'>
         <AnimatePresence mode="wait">
         {
@@ -34,7 +34,6 @@ function PlanPage()
         }
         </AnimatePresence>
       </div>
-
     </motion.div>
   )
 }
