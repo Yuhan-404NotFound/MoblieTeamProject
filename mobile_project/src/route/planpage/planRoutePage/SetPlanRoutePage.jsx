@@ -20,9 +20,9 @@ function SetPlanRoutePage()
     if (savedPlanData && Array.isArray(savedPlanData)) {
         setPlanData(savedPlanData);
     }
-    }, []);
+  }, []);
 
-    // 시작 날짜(StartDay)가 변할 때마다 종료 날짜(finalDay)를 자동으로 계산
+  // 시작 날짜(StartDay)가 변할 때마다 종료 날짜(finalDay)를 자동으로 계산
   useEffect(() => {
     // startDay State 값이 있을때만 실행
     if (startDay) {
@@ -49,21 +49,42 @@ function SetPlanRoutePage()
 
   // 계획 저장 함수
   function savePlan() {
+    const newStart = new Date(startDay);
+    const newEnd   = new Date(finalDay);
+
+    // 겹치는 플랜 있는지 검사
+    const isOverlapping = planData.some(plan => {
+      const existingStart = new Date(plan.startDay);
+      const existingEnd   = new Date(plan.finalDay);
+
+      // 날짜 범위 겹치는지 확인 (하루라도 겹치면 true)
+      return newStart <= existingEnd && newEnd >= existingStart;
+    });
+
+    if (isOverlapping) {
+      alert("겹치는 플랜이 존재합니다.");
+      return;
+    }
 
     // 저장할 계획 객체 생성
     const newPlanData = {
-      startDay: startDay,
-      finalDay: finalDay,
-      planList: planList,
-      clear: clear,
+      startDay: startDay,   // 시작 날짜
+      finalDay: finalDay,   // 끝 날짜
+      planList: planList,   // 계획 리스트
+      clear: clear,         // 완료 여부 (사용 X)
     };
 
     // 새로운 계획을 planData 배열에 추가
     const updatedPlanData = [...planData, newPlanData];
+
+    // Plan관리 State Set
     setPlanData(updatedPlanData);
 
-    // 로컬스토리지에 저장
+    // 로컬스토리지에 저장 (Json 형식으로 저장한다.)
     localStorage.setItem('PlanData', JSON.stringify(updatedPlanData));
+
+    // 저장 후 게획 리스트 추가한거 빈 배열로
+    setPlanList([]);
   }
 
 
@@ -83,20 +104,23 @@ function SetPlanRoutePage()
         </div>
         
         {/* 추가한 플랜 리스트 */}
-
         <div className='setPlanRouteList'>
-          {planList.length > 0 ? (
-            <div style={{ width: "100%" }}>
-              {planList.map((item, i) => (
-                <div key={i} className='task-card' data-index={i}>
-                  📌&nbsp;&nbsp;{item}
-                  </div>
-                  ))}
-                  </div>
-                  ) : (
-                    <p className='empty' style={{ marginTop: "80px"}}> 계획을 추가해주세요.</p>
-                    )}
-                  </div>
+          {
+            planList.length > 0 ? (
+              <div style={{ width: "100%" }}>
+                {
+                  planList.map((item, i) => (
+                    <div key={i} className='task-card' data-index={i}>
+                      📌&nbsp;&nbsp;{item}
+                    </div> 
+                  ))
+                }
+              </div>
+            ) : (
+              <p className='empty' style={{ marginTop: "80px"}}> 계획을 추가해주세요.</p>
+            )
+          }
+        </div>
         
 
 
@@ -104,8 +128,11 @@ function SetPlanRoutePage()
         <div>
             {/* 날짜 입력 UI */}
             <div style={{display:"flex", marginTop:"15px"}}>
-                <input type="date" value={startDay} onChange={(e) => setStartDay(e.target.value)} 
-                    className='dateInputStyle'/>
+                <input type="date" 
+                  value={startDay} 
+                  onChange={(e) => setStartDay(e.target.value)} 
+                  min={new Date().toISOString().split('T')[0]}  // 오늘 날짜 이상만 선택 가능
+                  className='dateInputStyle'/>
 
                 { /* 시작날짜가 지정되었을때만 finalDay 표시*/ }
                  {startDay && <span className="dateDisplay">~ {finalDay}</span>}

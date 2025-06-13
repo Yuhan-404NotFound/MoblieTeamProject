@@ -32,9 +32,12 @@ function CheckPlanRoutePage()
 
   // 저장된 계획 삭제 함수
   function deletePlan(indexToDelete) {
+
     const updatedPlanData = planData.filter((_, index) => index !== indexToDelete);
+
     setPlanData(updatedPlanData);
 
+    // json 형식으로 삭제제
     localStorage.setItem('PlanData', JSON.stringify(updatedPlanData));
     localStorage.setItem('todayCompletedPlan', JSON.stringify(updatedPlanData));
     localStorage.setItem('todayPlanData', JSON.stringify(updatedPlanData));
@@ -61,8 +64,7 @@ function CheckPlanRoutePage()
             {planData.length ? 
             // 저장된 플랜이 있을 때
             <div style={{width:"100%"}}>
-               
-                {
+              {
                 planData.map((planItem, index) => (
                     <div key={index} style={{marginBottom: "12px"/*width:"100%"*/}}>
                         <hr/>
@@ -85,9 +87,8 @@ function CheckPlanRoutePage()
                         </div>
                             
                     </div>
-                    ))
+                  ))
                 }
-               
             </div>
           : <p className = 'empty' style={{marginTop: "80px"}}>저장된 계획이 없습니다.</p>
           }
