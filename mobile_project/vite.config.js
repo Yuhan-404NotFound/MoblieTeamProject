@@ -17,9 +17,9 @@ export default defineConfig({
 
       includeAssets: ['apple-touch-icon.png'],
       manifest: {
-        name: '리액트 모바일 앱',
-        short_name: 'Mobile_Project',
-        description: '설명',
+        name: '작심삼일',
+        short_name: '3days',
+        description: '습관의 시작을 위한 일정관리 웹앱 입니다.',
         theme_color: '#000000',
         icons: [
           {
